@@ -92,4 +92,4 @@ The flight is scored on the checklist items you mark with `mark_checklist`, so a
 
 ## Related skills
 
-`takeoff-straight-ahead` for the runway roll, the route skill named in the task for the route itself, `landing` for the ILS autoland setup and sequence, and `ils-final-hands-off` for what not to press once LOC and G/S are captured.
+`takeoff-straight-ahead` for the runway roll, the scenario skill named in the task for the flight itself, `landing` for the ILS autoland setup and sequence, and `ils-final-hands-off` for what not to press once LOC and G/S are captured.
