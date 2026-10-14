@@ -83,10 +83,10 @@ Guarded and irreversible functions are in `fire-and-emergency`. Do not use them 
 
 The flight is scored on the checklist items you mark with `mark_checklist`, so a done item that is not marked counts as missed.
 
-- Read a phase's section with `read_checklist` (`category`) when the phase starts. The first scoped read returns `user_id`, `run_id` and `execution_id`; reuse them.
+- Read a section with `read_checklist` (`category`) when you reach that part of the flight. The first scoped read returns `user_id`, `run_id` and `execution_id`; reuse them.
 - When you have done an item and seen the confirmation (a reading, `verified: true`, or the FMA), mark it at once with `mark_checklist` (`section`, `item`). Do not wait and do not batch it for later.
 - If you did something before you read its section, read the section and mark what you already did and confirmed.
-- Before every `set_run_phase`, read the section of the phase you are leaving and mark every item you did and confirmed. Leave an item unmarked only if you did not do it or could not confirm it, and say so.
+- Before you move on to the next part of the flight, read the section you are finishing and mark every item you did and confirmed. Leave an item unmarked only if you did not do it or could not confirm it, and say so.
 - Never mark an item you did not do, and never mark a whole section in one go.
 - Marks record your acknowledgement, not the simulator state, so keep reading the airplane as usual.
 

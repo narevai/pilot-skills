@@ -11,8 +11,8 @@ This is the start-up part of the Sydney to Canberra flight. The airplane is park
 
 - You cannot load fuel, ground power, or a route from outside. If a needed thing is missing (no fuel, a switch that never responds), say so and call `report_issue`.
 - Do one thing at a time. After each action read the result (`verified`, `before`, `after`, `detail`) and the reading that proves it before moving on.
-- Keep the flight phase at `preflight` until you begin the takeoff roll.
-- The checklist for this run starts at the preliminary preflight. Read the section (`read_checklist`), do the item, confirm it with a reading, then `mark_checklist`. Mark it as soon as it is confirmed, not later. The sections follow the flight phases (see `yssy-yscb`); before each `set_run_phase`, review the section you are leaving and mark what you did. Never mark an item you did not do.
+- The flight phase is tracked automatically (it stays `preflight` while the airplane is stationary); you do not set it.
+- The checklist for this run starts at the preliminary preflight. Read the section (`read_checklist`), do the item, confirm it with a reading, then `mark_checklist`. Mark it as soon as it is confirmed, not later. The sections follow the flight (see `yssy-yscb`); before you move on, review the section you are finishing and mark what you did. Never mark an item you did not do.
 
 ## 1. Look before touching
 
