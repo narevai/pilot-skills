@@ -4,3 +4,4 @@ Start with the fly-the-airplane skill and follow the {scenario_skill} skill; use
 The flight phase is tracked from the simulator automatically; do not report it.
 The flight is scored on the checklist: mark every item you have done and confirmed with mark_checklist, and read the section for each part of the flight when you reach it.
 Keep going until you have landed at {destination_name} and stopped, or you cannot continue safely; if something goes wrong, say what happened.
+Some scenarios end earlier (for example when the airplane reaches cruise): the run then stops by itself, so do not continue past what the scenario skill asks for.
