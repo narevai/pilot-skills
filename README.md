@@ -1,13 +1,15 @@
 # pilot-skills
 
-Harness-agnostic instructions and skills for the agent that flies the simulator through irl-gym. A version is a folder:
+Harness-agnostic skills for the agent that flies the simulator through irl-gym. A version is a folder that is a skills root, so it installs with the skills CLI:
+
+```
+npx skills add narevai/pilot-skills/v1
+```
 
 ```
 v1/
-  AGENTS.md              standing instructions
-  prompt.md              task prompt template ({departure}, {destination}, {scenario_skill}, ...)
-  skills/<skill>/SKILL.md          common skills, always installed
-  scenario/<scenario>/SKILL.md      scenario skills, chosen per run in the irl-gym dashboard
+  skills/<skill>/SKILL.md
+  skills/<category>/<skill>/SKILL.md
 ```
 
-A skill never names a harness. A scenario skill may point to another scenario skill (the cold start continues with `yssy-yscb`); select both when queueing. The command, the MCP configuration and the place the skills are copied to belong to the harness repos (`pilot-opencode`, `pilot-cursor`).
+A skill never names a harness. The task prompts and the standing instructions live in irl-gym; the command, the MCP configuration and the place the skills are copied to belong to the harness repos.
