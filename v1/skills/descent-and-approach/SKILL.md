@@ -1,0 +1,34 @@
+---
+name: descent-and-approach
+description: Descend the Zibo 737-800X from cruise and set up an ILS approach: VNAV or LVL CHG descent, speed and drag, altimeter at the transition, ILS tuning and identification, intercept from below, gear and flaps for a stabilised final. Use from top of descent until LOC and G/S are captured, or when you start within about 25 nm of the airport.
+---
+
+# Descent and approach
+
+Use `fly-the-airplane` for how the tools work. Read the `descent` and `approach` checklist sections (`read_checklist` with `category`) and mark items as you confirm them. If you start close to the airport with the autopilot already flying, look first (`assess-flight-state`) and do not change what is already right. Do not press `lnav` or `vnav` when the FMC has no route.
+
+## Descent
+
+- Before top of descent, confirm the arrival and the approach, then select the permitted lower altitude on the MCP. A VNAV descent cannot begin normally while the MCP stays at the cruise altitude. Monitor path and speed; manage drag with `speedbrake` value 2 when necessary.
+- Do not repeatedly press `altitude-intervention` or `speed-intervention`: they remove restrictions. If VNAV is unavailable (a stale CDU `NAV DATA OUT OF DATE` can hold cruise even with a lower MCP altitude), deliberately use `lvl-chg` or `v-s` with a verified altitude target and speed, then recover VNAV when suitable. Watch the PROG `TO T/D`.
+- A short leg needs an early descent: check the path against the altitude you need at the final approach fix and be at about 160 kt before it. Do not let the speed ride up.
+- Altimeter: `cockpit_altimeter` `std` at the transition level; at the transition altitude on descent `set-altimeter` with the QNH in inHg (`weather.qnh-in-hg`), then check `altimeter.setting` (the knob is clicked, so it takes a moment).
+- Check the destination weather and choose a runway compatible with it, the available procedures and the autoland capability. Take the ILS frequency, identifier, magnetic course, intercept altitude, minima and missed approach from the chart. Do not invent them.
+
+## ILS setup
+
+- Tune and identify with `cockpit_radios_and_ils`: `set-nav-1-standby-frequency` (MHz), `nav-1-swap`, `set-nav-1-course` to the inbound course; the same for Nav 2. Verify `radios-and-ils.nav-1-frequency`, `nav-1-ident` (it must match the chart), `nav-1-course`, then `nav-1-localizer` and `nav-1-glideslope` (dots), `nav-1-dme` and `nav-1-glideslope-flag`.
+- The localizer is receivable only on the approach side: an empty ident away from the final course is not a reason to scan frequencies. If it stays empty on the extended centreline within range, read the chart again.
+- A radio course may not set (the reading stays 0) and `nav-1-dme` may not track distance. Read the course back; if it will not set, treat the intercept as suspect and watch the localizer dots. Use the FMC PROG `DTG` or `latitude` / `longitude` for distance.
+- Set minimums, the landing lights and signs and the autobrake the checklist asks for.
+
+## Intercept and configure
+
+- Capture the glideslope **from below**: hold the altitude until the 3° path reaches it (about 320 ft of path per nautical mile, so 5000 ft above the threshold is about 16 nm out) and do not descend by hand.
+- Slow down early so that gear, landing flaps and the landing speed are set before the glideslope. The autothrottle holds the selected speed, so use `set-speed` in steps and extend the flaps within their limits (see `landing`). Use `speedbrake` value 2 for drag and arm it (value 1) for landing.
+- Select `app` when properly positioned: the localizer is alive (ident matches, `nav-1-localizer` within about two dots, on the final course). Verify LOC and G/S **armed** (`fma-roll-armed`, `fma-pitch-armed`), then **captured** (`fma-roll` `VOR/LOC`, `fma-pitch` `G/S`). Do not assume autoland is available merely because `app` is selected. From capture follow `ils-final-hands-off`, then `landing`.
+- If the approach is not stable by about 1000 ft AGL, or guidance is lost, follow `go-around`.
+
+## RNAV approach instead
+
+Follow the aircraft's supported procedure: LNAV/VNAV final guidance shows **LNAV and VNAV PTH**; supported IAN guidance uses `app` with **FAC and G/P**. Identify which system this airplane supports first. An RNAV vertical path does not establish autoland capability: plan a manual landing unless the installed system explicitly supports it.

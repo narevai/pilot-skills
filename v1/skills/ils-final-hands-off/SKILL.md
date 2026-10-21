@@ -9,7 +9,7 @@ After **VOR/LOC** and **G/S** are captured, the autopilot is flying the approach
 
 Tools: autopilot buttons are the `cockpit_mcp_and_autopilot` tool (`action` values below); readings are `read_reading` / `read_group` on the `flightsim-pilot` server. The client may prefix tool names with the server name.
 
-Learned the hard way on YSCB ILSY 35: the airplane was descending on the glideslope with dual AP armed for autoland; unnecessary `cmd-a` / `cmd-b` presses dropped a channel, broke G/S, and the aircraft climbed toward the missed-approach MCP altitude.
+Learned the hard way on an ILS Y 35 approach: the airplane was descending on the glideslope with dual AP armed for autoland; unnecessary `cmd-a` / `cmd-b` presses dropped a channel, broke G/S, and the aircraft climbed toward the missed-approach MCP altitude.
 
 ## What went wrong
 
