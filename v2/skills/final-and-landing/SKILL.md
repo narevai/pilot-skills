@@ -19,21 +19,21 @@ A coupled ILS with CMD A only tracks LOC and G/S to minima but does not flare or
 
 ## Second autopilot, once
 
-With CMD A flying the coupled approach press `cmd-b` **once**, right after G/S capture and well above 1,500 ft (it is locked out below 800 ft radio altitude). Read `cmd-a` and `cmd-b`: both on. **Never press either CMD button again** (they toggle). If one drops on final, go around; do not toggle to restore it.
+A short press of `cmd-b` only changes over from CMD A to CMD B: CMD A goes off and you never get two channels. The second autopilot needs a **long press**: use `cmd-b-hold` (press and hold), with CMD A flying and APP armed, right after G/S capture and well above 1,500 ft (it is locked out below 800 ft radio altitude). Read `cmd-a` and `cmd-b`: both on. If CMD B was engaged first, use `cmd-a-hold` instead. **Never press either CMD button again**, short or long (they toggle). If one drops on final, go around; do not toggle to restore it. If both lights are not on after one `cmd-b-hold`, do not press again: continue the single-autopilot ILS and land by hand.
 
 ## Hard rules on final
 
 | Do | Do not |
 | --- | --- |
-| Gear, landing flaps, speedbrake armed, autobrake, one `set-speed` | Press `cmd-a` or `cmd-b` again |
-| One `cmd-b`, one missed-approach `set-altitude` after G/S is established | Press `app`, `lnav`, `vnav`, `hdg-sel`, `lvl-chg` or `v-s` |
+| Gear, landing flaps, speedbrake armed, autobrake, one `set-speed` | Press `cmd-a`, `cmd-b` or a hold variant again |
+| One `cmd-b-hold`, one missed-approach `set-altitude` after G/S is established | Press `app`, `lnav`, `vnav`, `hdg-sel`, `lvl-chg` or `v-s` |
 | Monitor airspeed, vertical speed (negative), height AGL, FMA, CMD lights, LOC and G/S dots | Fix a lost G/S with V/S inputs close in |
 
 This is how a glideslope was lost on a flown approach: extra CMD presses dropped a channel and broke G/S, the MCP altitude was above the airplane, and it climbed. That is mode behaviour, not a mystery.
 
 If the vertical speed turns positive on final, read `selected-altitude` and the FMA first. MCP above you and G/S gone means the autopilot is climbing to the MCP: fly the published missed approach with `to-ga-left`; do not force a late descent inside 3 to 4 nm when high.
 
-Allowed on final: gear 2, flaps to schedule, `speedbrake` 1, engine start selectors to CONT (`engine-1-start`, `engine-2-start` value 2), one speed set, one `cmd-b`, one missed-approach altitude, `to-ga-left`. Read the result of each before anything else.
+Allowed on final: gear 2, flaps to schedule, `speedbrake` 1, engine start selectors to CONT (`engine-1-start`, `engine-2-start` value 2), one speed set, one `cmd-b-hold`, one missed-approach altitude, `to-ga-left`. Read the result of each before anything else.
 
 ## Autoland verification
 

@@ -34,7 +34,7 @@ Do not intercept the glideslope from above and do not press APP repeatedly; if t
 
 ## Second autopilot
 
-With CMD A flying the coupled approach, press **`cmd-b` once** (if B is flying, engage A instead). Both must be engaged **before 800 ft radio altitude**; below that the second autopilot is locked out. In practice do it right after G/S capture and well above 1,500 ft. Read `cmd-a` and `cmd-b` (both on). Never press either again (see `ils-final-hands-off`).
+With CMD A flying the coupled approach and APP armed, use **`cmd-b-hold` once** (press and hold; if B is flying, use `cmd-a-hold` instead). A short `cmd-b` press only changes over from A to B and never gives two channels. Both must be engaged **before 800 ft radio altitude**; below that the second autopilot is locked out. In practice do it right after G/S capture and well above 1,500 ft. Read `cmd-a` and `cmd-b` (both on). Never press either again (see `ils-final-hands-off`).
 
 ## Checks at about 1,500 ft radio altitude
 

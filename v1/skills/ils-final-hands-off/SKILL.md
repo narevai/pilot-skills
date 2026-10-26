@@ -24,16 +24,16 @@ Once **VOR/LOC** is active and **G/S** is armed or active:
 
 | Do | Do not |
 |---|---|
-| Configure gear / flaps / speedbrake / CONT per checklist | Press `cmd-a` or `cmd-b` again |
+| Configure gear / flaps / speedbrake / CONT per checklist | Press `cmd-a`, `cmd-b` or a hold variant again |
 | Set landing speed once (`set-speed`); leave it | Toggle `app`, `vor-loc`, `lvl-chg`, `vnav`, or `hdg-sel` |
-| Engage **`cmd-b` once** early (before 1500 ft height AGL), confirm both CMD lights, then stop | “Re-engage” dual AP mid-final |
+| Engage **`cmd-b-hold` once** early (before 1500 ft height AGL), confirm both CMD lights, then stop | “Re-engage” dual AP mid-final |
 | After **stable G/S capture and established descent**, set MCP missed approach (`set-altitude`) | Set missed MCP if G/S is not confirmed captured |
 | Monitor only: IAS, VS, height AGL, altitude, FMA, both CMD lights, localizer and glideslope dots | Fix a broken G/S with V/S scrapes close-in |
 
 ## Dual AP (autoland)
 
 1. Capture LOC/G/S on **CMD A** alone first.
-2. When established and still above ~1500 ft height AGL, press **`cmd-b` once**.
+2. When established and still above ~1500 ft height AGL, use **`cmd-b-hold` once** (press and hold). A short `cmd-b` press only changes over from CMD A to CMD B.
 3. Read `mcp-and-autopilot.cmd-a` and `mcp-and-autopilot.cmd-b`. Both must be on (also visible in `get_function_states`).
 4. **Never press either CMD button again** unless the published go-around requires it.
 5. If one CMD light goes out on final: **go around**. Do not toggle to restore dual channel below the glideslope.
@@ -52,7 +52,7 @@ If vertical speed goes positive after you were descending on G/S:
 - Checklist config: `gear` value 2, flaps to schedule (`cockpit_brakes_flaps_and_gear` `flaps`), `cockpit_engine_start` `engine-1-start` and `engine-2-start` with value 2 (CONT), `speedbrake` value 1
 - One speed set (`set-speed`) to target approach speed
 - One MCP missed-approach set (`set-altitude`) **after** G/S is clearly captured and VS is a steady descent
-- One `cmd-b` for dual channel, then hands off
+- One `cmd-b-hold` for dual channel, then hands off
 - Go-around: `to-ga-left` (in `cockpit_engines_and_thrust`) when unstable or G/S lost
 
 ## Verify after every allowed action
