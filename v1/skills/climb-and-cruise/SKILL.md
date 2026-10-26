@@ -10,7 +10,7 @@ Use `fly-the-airplane` for how the tools work. Read the `climb_cruise` checklist
 ## Climb
 
 - At or above **400 feet height AGL**, once stable, trimmed and following flight director guidance, arm `lnav` when the geometry permits and `vnav`, confirm them armed (`fma-roll-armed`, `fma-pitch-armed`), then engage `cmd-a`. Verify CMD engagement and the lateral and vertical modes. If there is no route in the FMC, use `hdg-sel` and `lvl-chg` instead and fly the headings and altitudes the task gives.
-- `pitch-control` is the elevator position, held and sensitive (see `fly-the-airplane` and `takeoff-straight-ahead`): steps of 0.05 to 0.15, read `flight-instruments.pitch` at once, and stop writing it once `cmd-a` is on.
+- `pitch-control` is the elevator position, held and sensitive (see `fly-the-airplane` and `takeoff-straight-ahead`): make small changes (any value from -1 to 1 is accepted), read `flight-instruments.pitch` and its `trend` at once and decide the next input from what the airplane did, and stop writing it once `cmd-a` is on.
 - Retract the gear after a positive rate of climb (`gear` value 0) and the flaps on the scheduled speeds. Verify climb thrust.
 - Manage the MCP altitude through the climb so that it permits the cleared climb and keeps the restrictions. If the airplane levels at the MCP altitude, selecting a higher one may need the appropriate VNAV resumption. Confirm the resulting mode before continuing.
 - Set standard pressure at the transition altitude: `cockpit_altimeter` `std`, then read `altimeter.std-selected`.

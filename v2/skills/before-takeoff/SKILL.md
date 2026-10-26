@@ -30,7 +30,7 @@ The pitch, roll and rudder setpoints reach the airplane only while `joystick-ove
 1. Turn `joystick-override` on (toggle: read it first) and read it back.
 2. Read `pitch-control`, `roll-control`, `rudder-control` and both `throttle` readings. All must be 0; set any other to 0 and read again. A fresh run can keep the previous attempt's values.
 3. Read `rudder-trim` and `aileron-trim`: both must be 0. A rudder trim of -1 (full left) sent a takeoff off the runway with the pedals at 0 and the engines matched. No action sets these trims: if one is not 0, call `report_issue` and ask the user; do not take off.
-4. Test the pedals: set `rudder-control` to 0.2, read it back and `rudder-input` (the real pedal position), then set it to 0 and read 0 again. Do not roll with the test deflection in.
+4. Test the pedals: set `rudder-control` to a small value, read it back and `rudder-input` (the real pedal position), then set it to 0 and read 0 again. Do not roll with the test deflection in.
 
 ## 4. MCP
 
