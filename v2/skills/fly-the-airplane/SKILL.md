@@ -9,10 +9,11 @@ Work a closed loop: act, read the result, read the instrument that proves it. Th
 
 ## Time is part of the loop
 
-Every call takes seconds (a cockpit action about 0.4 s plus your own thinking). The airplane does not wait. Use few calls per cycle: `read_group` returns a whole group in one call. In a fast phase (takeoff roll, short final) read one group, decide, make at most one control call. Never batch a control change together with a mode button.
+Every call takes seconds (a cockpit action about 0.4 s plus your own thinking). The airplane does not wait. Use few calls per cycle: `read_flight_deck_indications` returns the whole picture in one call. In a fast phase (takeoff roll, short final) read it, decide, make at most one control call. Never batch a control change together with a mode button.
 
 ## Readings
 
+- `read_flight_deck_indications` reads the whole airplane in one call, all values taken together: flight instruments, altimeter, engines, FMA and MCP selections, flaps, gear, speedbrake, autobrake, and nav 1 and 2 with localizer, glideslope and DME. It returns `read_ms`, `window` (seconds) and `groups`; each reading has `trend` (change per second over `window`) and `ago` (the value `window` seconds earlier). Start every cycle with it instead of several `read_group` calls, and use `read_group` or `read_reading` only for what it does not list.
 - `list_groups`, `list_readings`, `read_group`, `read_reading`. Ids look like `flight-instruments.airspeed` or `mcp-and-autopilot.cmd-a`. Groups: `v-speeds`, `takeoff-data`, `fmc-cdu`, `flight-instruments`, `altimeter`, `weather`, `radios-and-ils`, `runway-and-approach`, `engines-and-thrust`, `brakes-flaps-and-gear`, `flight-controls`, `mcp-and-autopilot`, `lights-and-transponder`, `electrical`, `apu-and-fuel`, `hydraulics-and-air`, `anti-ice-and-wipers`, `engine-start`, `lights-and-signs`, `efis-captain`, `efis-first-officer`, `irs`, `display-panels`, `radio-panel-and-audio`, `tests-and-service`, `fire-and-emergency`.
 - Numeric readings carry `trend` (change per second over `window`, 5 s), `ago` (the value `window` seconds ago) and `window`. They are null until enough history has been collected, so do not rely on a trend in the first seconds of a run. Use it to extrapolate: time to reach a speed or altitude is `(target - value) / trend`.
 - On/off readings are booleans; mode readings (the FMA) are text.

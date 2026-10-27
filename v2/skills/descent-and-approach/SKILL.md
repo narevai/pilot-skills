@@ -21,10 +21,14 @@ Read the `descent` and `approach` checklist sections and mark items in quiet mom
 - Tune and identify with `cockpit_radios_and_ils`: `set-nav-1-standby-frequency` (MHz), `nav-1-swap`, `set-nav-1-course` to the inbound course; the same for Nav 2. Never write the radio datarefs. Verify `nav-1-frequency`, `nav-1-ident` (must match the chart), `nav-1-course`, then `nav-1-localizer`, `nav-1-glideslope` (dots), `nav-1-dme` and `nav-1-glideslope-flag`.
 - A radio course may not take: the reading stays 0. Read it back; a zero course biases APP. `nav-1-dme` may not track distance: use the FMC PROG `DTG` or `latitude` / `longitude`.
 - The localizer is receivable only on the approach side; an empty ident away from the final course is not a reason to scan frequencies.
+- The localizer and glideslope appear only near the final course and within about 25 nm of the runway. An empty ident, `nav-1-localizer` 0.0 and `nav-1-glideslope-flag` 1 farther out or off the course are normal, not a fault. Do not stop the flight because of them: navigate with the FMC (`LEGS`, PROG `DTG`) and check the radio again once you are established on the final course.
+- `height-agl` is the height above the terrain directly below, not above the runway. Over high ground it is smaller than altitude minus the field elevation. Use altitude (QNH) against the chart altitudes, and `height-agl` only near the field.
 - Set minimums, landing lights and signs, and the autobrake the checklist asks for.
 
 ## Intercept and configure
 
+- Plan the join before descending: the final course starts on the extended centreline, about 10 to 15 nm out, with the aircraft below the glideslope altitude for that distance (field elevation plus about 320 ft per nm) and at about 160 to 180 kt. Arriving at 8 nm at 5,000 ft and 200 kt is too high and too fast: turn away and re-join from the correct side; do not try to capture from above.
+- Keep the pattern tight around the field. Do not fly tens of nautical miles away from the centreline and back; it costs time and altitude and leaves the radios unusable.
 - Capture the glideslope from below: hold the altitude until the 3 degree path reaches it (about 320 ft of path per nautical mile) and do not descend by hand.
 - Slow down early so that gear, landing flaps and landing speed are set before the glideslope. The autothrottle holds the selected speed: use `set-speed` in steps and extend the flaps within their limits. `speedbrake` value 2 for drag, value 1 (arm) for landing.
 - Get onto an intercept heading 30 degrees or less from the localizer course, with the localizer alive (ident matches, `nav-1-localizer` within about two dots, on the final course), then press `app` once. Read `fma-roll-armed` `VOR/LOC` and `fma-pitch-armed` `G/S`. Do not assume autoland is available because `app` is selected.

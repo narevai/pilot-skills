@@ -10,8 +10,8 @@ The task tells you where you start and what to achieve, not what the airplane lo
 ## Read
 
 1. `get_status`, then `get_run` (phase and, if the run has one, where it ends). If there is no run, tell the user; you cannot start one.
-2. `read_group` on `flight-instruments` (`on-ground`, `height-agl`, `airspeed`, `ground-speed`, `altitude`, `vertical-speed`, `pitch`, `heading`, position), `engines-and-thrust`, `brakes-flaps-and-gear`, `mcp-and-autopilot` (FMA, CMD lights, selected values) and `electrical`.
-3. `read_group` on `fmc-cdu` (is there a route?), `takeoff-data` (fuel, weight, V-speeds) and `weather`.
+2. `read_flight_deck_indications` (flight instruments with `on-ground`, `height-agl`, `airspeed`, `altitude`, `vertical-speed`, `pitch`, `heading`; engines; flaps, gear and speedbrake; the FMA, CMD and selected values; nav 1 and 2).
+3. `read_group` on `electrical`, `fmc-cdu` (is there a route?), `takeoff-data` (fuel, weight, V-speeds) and `weather`, which it does not cover.
 
 Phases, in order: `preflight` (stationary on the ground), `taxi`, `takeoff` (rolling above about 40 kt), `climb`, `cruise`, `descent`, `approach` (within about 20 nm of the destination, descending), `landing` (gear down, below about 500 ft), `arrived`. A go-around returns the phase to `climb`. The simulator sets the phase after its conditions have held for a few seconds, so it can lag.
 
